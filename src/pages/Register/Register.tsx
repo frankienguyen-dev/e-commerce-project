@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { rules } from 'src/utils/rules';
+import { getRules } from 'src/utils/rules';
 
 interface formData {
   email: string;
@@ -13,13 +13,21 @@ export default function Register() {
   const {
     handleSubmit,
     register,
+    getValues,
     formState: { errors }
   } = useForm<formData>();
 
-  console.log('check error: ', errors);
-  const onSubmit = handleSubmit((data) => {
-    // console.log('check data: ', data);
-  });
+  const rules = getRules(getValues);
+
+  const onSubmit = handleSubmit(
+    (data) => {
+      // console.log('check data: ', data);
+    },
+    (data) => {
+      const password = getValues('password');
+      console.log(password);
+    }
+  );
 
   return (
     <div className='bg-orange'>
@@ -60,7 +68,9 @@ export default function Register() {
                 <input
                   type='password'
                   autoComplete='on'
-                  {...register('password_confirm', rules.password_confirm)}
+                  {...register('password_confirm', {
+                    ...rules.password_confirm
+                  })}
                   className='w-full rounded-sm border-[1px] border-gray-300 p-3 outline-none 
                   focus:border-gray-500 focus:shadow-sm'
                   placeholder='Confirm Password'
