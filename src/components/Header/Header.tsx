@@ -1,17 +1,5 @@
-import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  useFloating,
-  FloatingPortal,
-  useHover,
-  useInteractions,
-  arrow,
-  flip,
-  FloatingArrow,
-  shift,
-  offset
-} from '@floating-ui/react';
-import { AnimatePresence, motion } from 'framer-motion';
+
 import Popover from '../Popover';
 
 export default function Header() {
@@ -69,26 +57,23 @@ export default function Header() {
             className=' relative ml-6 flex cursor-pointer items-center py-1 after:absolute after:top-[20px] 
             after:right-[-20px] after:h-[20px] after:w-[160px] after:cursor-pointer
             after:bg-transparent after:content-[""] hover:text-gray-300 '
-            // className='relative top-0 left-[-50px] rounded-sm border border-gray-300
-            //        bg-white shadow-md after:absolute after:top-[-20px] after:right-[0px] after:h-[20px] after:w-[120px]
-            //          after:cursor-pointer after:bg-transparent after:content-[""]'
             renderPopover={
-              <div>
+              <div className='rounded-sm border border-gray-300 shadow-md'>
                 <Link
                   to='/'
-                  className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-cyan-500'
+                  className='block w-full bg-white py-3 px-4 text-left text-[0.9rem] hover:bg-slate-100 hover:text-cyan-500'
                 >
                   Tài khoản của tôi
                 </Link>
 
                 <Link
                   to='/'
-                  className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-cyan-500'
+                  className='block w-full bg-white py-3 px-4 text-left text-[0.9rem] hover:bg-slate-100 hover:text-cyan-500'
                 >
                   Đơn mua
                 </Link>
 
-                <button className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-cyan-500'>
+                <button className='block w-full bg-white py-3 px-4 text-left text-[0.9rem] hover:bg-slate-100 hover:text-cyan-500'>
                   Đăng xuất
                 </button>
               </div>
@@ -142,23 +127,155 @@ export default function Header() {
             </div>
           </form>
 
-          <div className='col-span-1'>
-            <Link to='/'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={1.5}
-                stroke='currentColor'
-                className='ml-10 h-8 w-8'
+          <div className='col-span-1 justify-self-end'>
+            <Popover
+              placement='bottom-end'
+              renderPopover={
+                <div className='relative max-w-[400px] rounded-sm border border-gray-200 bg-white text-sm shadow-md'>
+                  <div className='p-3'>
+                    <div className='capitalize text-gray-400'>Sản phẩm mới thêm</div>
+
+                    <div className='mt-5'>
+                      <div className='mt-4 flex cursor-pointer'>
+                        <div className='flex-shrink-0'>
+                          <img
+                            src='https://cf.shopee.vn/file/sg-11134201-22100-pr8kc6o4jrivef_tn'
+                            alt='product images'
+                            className='h-11 w-11 object-cover'
+                          />
+                        </div>
+
+                        <div className='ml-2 flex-grow overflow-hidden'>
+                          <div className=' truncate'>
+                            [AppleWatchUltra] Kính cường lực Apple Watch Ultra 49mm Anank chống
+                            trầy, chống va đập
+                          </div>
+                        </div>
+
+                        <div className='ml-2 flex-shrink-0 '>
+                          <span className='text-orange'>200.000đ</span>
+                        </div>
+                      </div>
+
+                      <div className='mt-4 flex cursor-pointer'>
+                        <div className='flex-shrink-0'>
+                          <img
+                            src='https://cf.shopee.vn/file/sg-11134201-22100-pr8kc6o4jrivef_tn'
+                            alt='product images'
+                            className='h-11 w-11 object-cover'
+                          />
+                        </div>
+
+                        <div className='ml-2 flex-grow overflow-hidden'>
+                          <div className=' truncate'>
+                            [AppleWatchUltra] Kính cường lực Apple Watch Ultra 49mm Anank chống
+                            trầy, chống va đập
+                          </div>
+                        </div>
+
+                        <div className='ml-2 flex-shrink-0 '>
+                          <span className='text-orange'>200.000đ</span>
+                        </div>
+                      </div>
+
+                      <div className='mt-4 flex cursor-pointer'>
+                        <div className='flex-shrink-0'>
+                          <img
+                            src='https://cf.shopee.vn/file/sg-11134201-22100-pr8kc6o4jrivef_tn'
+                            alt='product images'
+                            className='h-11 w-11 object-cover'
+                          />
+                        </div>
+
+                        <div className='ml-2 flex-grow overflow-hidden'>
+                          <div className=' truncate'>
+                            [AppleWatchUltra] Kính cường lực Apple Watch Ultra 49mm Anank chống
+                            trầy, chống va đập
+                          </div>
+                        </div>
+
+                        <div className='ml-2 flex-shrink-0 '>
+                          <span className='text-orange'>200.000đ</span>
+                        </div>
+                      </div>
+
+                      <div className='mt-4 flex cursor-pointer'>
+                        <div className='flex-shrink-0'>
+                          <img
+                            src='https://cf.shopee.vn/file/sg-11134201-22100-pr8kc6o4jrivef_tn'
+                            alt='product images'
+                            className='h-11 w-11 object-cover'
+                          />
+                        </div>
+
+                        <div className='ml-2 flex-grow overflow-hidden'>
+                          <div className=' truncate'>
+                            [AppleWatchUltra] Kính cường lực Apple Watch Ultra 49mm Anank chống
+                            trầy, chống va đập
+                          </div>
+                        </div>
+
+                        <div className='ml-2 flex-shrink-0 '>
+                          <span className='text-orange'>200.000đ</span>
+                        </div>
+                      </div>
+
+                      <div className='mt-4 flex cursor-pointer'>
+                        <div className='flex-shrink-0'>
+                          <img
+                            src='https://cf.shopee.vn/file/sg-11134201-22100-pr8kc6o4jrivef_tn'
+                            alt='product images'
+                            className='h-11 w-11 object-cover'
+                          />
+                        </div>
+
+                        <div className='ml-2 flex-grow overflow-hidden'>
+                          <div className=' truncate'>
+                            [AppleWatchUltra] Kính cường lực Apple Watch Ultra 49mm Anank chống
+                            trầy, chống va đập
+                          </div>
+                        </div>
+
+                        <div className='ml-2 flex-shrink-0 '>
+                          <span className='text-orange'>200.000đ</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='mt-6 flex items-center justify-between'>
+                      <div className='text-[0.9rem] capitalize text-gray-500'>
+                        Thêm hàng vào giỏ{' '}
+                      </div>
+                      <button className='rounded-sm bg-orange px-5 py-4 text-xs capitalize text-white hover:bg-opacity-90'>
+                        <span className='text-[0.9rem]'>Xem giỏ hàng</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              }
+            >
+              <Link
+                to='/'
+                className='relative  after:absolute after:top-[20px] 
+                after:right-[-60px] after:h-[20px] after:w-[150px]
+                  after:cursor-pointer after:content-[""]'
               >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z'
-                />
-              </svg>
-            </Link>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='  flex h-8 w-8'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z'
+                  />
+                </svg>
+              </Link>
+            </Popover>
           </div>
         </div>
       </div>

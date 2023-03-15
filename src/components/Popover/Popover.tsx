@@ -1,6 +1,6 @@
 import React, { useState, useRef, useId, ElementType } from 'react';
 import { Link } from 'react-router-dom';
-import { useFloating, FloatingPortal, arrow, shift, offset } from '@floating-ui/react';
+import { useFloating, FloatingPortal, arrow, shift, offset, Placement } from '@floating-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { render } from 'react-dom';
 
@@ -9,13 +9,15 @@ interface Props {
   renderPopover: React.ReactNode;
   className?: string;
   as?: ElementType;
+  placement?: Placement;
 }
 
 export default function Popover({
   children,
   renderPopover,
   className,
-  as: Element = 'div'
+  as: Element = 'div',
+  placement
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef<HTMLElement>(null);
@@ -27,7 +29,8 @@ export default function Popover({
       arrow({
         element: arrowRef
       })
-    ]
+    ],
+    placement
   });
 
   const showPopover = () => {
@@ -64,8 +67,8 @@ export default function Popover({
             >
               <span
                 ref={arrowRef}
-                className='absolute z-10 translate-y-[-95%] border-[11px] border-x-transparent
-                     border-b-white border-t-transparent '
+                className='absolute z-10 translate-y-[-95%]  border-[11px]
+                     border-x-transparent border-b-white border-t-transparent  '
                 style={{
                   left: middlewareData.arrow?.x,
                   top: middlewareData.arrow?.y
